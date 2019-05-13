@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     @Override
@@ -17,8 +20,12 @@ public class MainActivity extends AppCompatActivity {
         Point p1 = new Point(1, 1);
         Point p2 = new Point3D(1, 1, 1);
         Point p3 = new Point3D(1, 1, 2);
+
         Log.i(TAG,"" + p1.equals(p2));   // 顯示 true
         Log.i(TAG,"" + p2.equals(p1));// 顯示 false
         Log.i(TAG,"" + p2.equals(p3));// 顯示 false
+
+        Set pSet = new HashSet();
+        pSet.add(p1);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.equals_test;
 
+import java.util.Objects;
+
 public class Point {
     public final int x;
     public final int y;
@@ -9,7 +11,8 @@ public class Point {
         this.y = y;
     }
 
-//        public boolean equals(Point that) {
+
+    //        public boolean equals(Point that) {
 //        return this.x == that.x && this.y == that.y;
 //    }
 
