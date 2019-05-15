@@ -43,9 +43,21 @@ public class Point {
 
     public int compareTo(Point o2) {
         Point o1 = this;
-        if (o1.x - o2.x == 0) {
-            return o1.y - o2.y;
+        if (o1.y - o2.y == 0) {
+            return o1.x - o2.x;
         }
-        return o1.x - o2.x; //大到小
+
+        return o1.y - o2.y; //大到小
     }
+
+    public static Comparator<Point> getComparator =  new Comparator<Point>() {
+        //example
+        @Override
+        public int compare(Point o1, Point o2) {
+            if (o1.x - o2.x == 0) {
+                return o1.y - o2.y;
+            }
+            return o1.x - o2.x; //大到小
+        }
+    };
 }

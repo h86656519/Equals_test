@@ -1,5 +1,7 @@
 package com.example.equals_test;
 
+import java.util.Comparator;
+
 public class Square {
 
     private Point topLeft;
@@ -37,4 +39,24 @@ public class Square {
                 "bottomLeft : " + this.bottomLeft + ", " +
                 "bottomRight : " + this.bottomRight;
     }
+
+    public static Comparator<Square> SquareComparator = new Comparator<Square>() {
+        @Override
+        public int compare(Square o1, Square o2) {
+            if (o1.SquareArea() - o2.SquareArea() == 0) {
+//                    作法一:
+//                    if (o1.getTopLeft().x - o2.getTopLeft().x == 0) {
+//                        return o1.getTopLeft().x - o2.getTopLeft().x;
+//                    }
+
+//                    作法二: static 的做法比較差
+//                    return p;
+
+//                    作法三:
+                return Point.PointComparator(o1.bottomLeft, o2.bottomLeft);
+            }
+            return o1.SquareArea() - o2.SquareArea(); //o1 - o2 = 升冪
+//                return o2.SquareArea() - o1.SquareArea();   //降冪
+        }
+    };
 }

@@ -62,16 +62,7 @@ public class ExampleUnitTest {
 
         System.out.println(p);
 
-//        Collections.sort(p, new Comparator<Point>() {
-//            //example
-//            @Override
-//            public int compare(Point o1, Point o2) {
-//                if (o1.x - o2.x == 0) {
-//                    return o1.y - o2.y;
-//                }
-//                return o1.x - o2.x; //大到小
-//            }
-//        });
+        Collections.sort(p,Point.getComparator);
 
         for (Point pp : p)
             System.out.println(pp.toString());
@@ -79,6 +70,7 @@ public class ExampleUnitTest {
 
     @Test
     public void squareTest() {
+        System.out.println("SquareTest");
         Square square = Square.createSampleData();
         RedSquare redSquare = RedSquare.createSampleData();
 //        System.out.println(square.toString());
@@ -92,26 +84,7 @@ public class ExampleUnitTest {
         s.add(new Square(new Point(1, 4), new Point(4, 4), new Point(1, 2), new Point(4, 2))); //6
         s.add(new Square(new Point(1, 5), new Point(4, 5), new Point(1, 2), new Point(4, 2))); //9
 
-        Collections.sort(s, new Comparator<Square>() {
-            @Override
-            public int compare(Square o1, Square o2) {
-                if (o1.SquareArea() - o2.SquareArea() == 0) {
-//                    作法一:
-//                    if (o1.getTopLeft().x - o2.getTopLeft().x == 0) {
-//                        return o1.getTopLeft().x - o2.getTopLeft().x;
-//                    }
-
-//                    作法二: static 的做法比較差
-//                    int p = Point.PointComparator(o1.getTopLeft(), o2.getTopLeft());
-//                    return p;
-
-//                    作法三:
-                    return o1.getTopLeft().compareTo(o2.getTopLeft());
-                }
-                return o1.SquareArea() - o2.SquareArea(); //o1 - o2 = 升冪
-//                return o2.SquareArea() - o1.SquareArea();   //降冪
-            }
-        });
+        Collections.sort(s, Square.SquareComparator);
 
         for (Square ss : s) {
             System.out.println(ss.SquareArea());
@@ -122,10 +95,12 @@ public class ExampleUnitTest {
 
     @Test
     public void name() {
+        System.out.println("PointTest");
+
         Point point1 = new Point(1, 2);
-        Point point2 = new Point(3, 2);
+        Point point4 = new Point(5, 8);
         Point point3 = new Point(5, 2);
-        Point point4 = new Point(6, 2);
+        Point point2 = new Point(3, 1);
 
         List<Point> points = new ArrayList<>();
         points.add(point1);
@@ -139,6 +114,6 @@ public class ExampleUnitTest {
                 return o1.compareTo(o2);
             }
         });
-
+        System.out.println(points);
     }
 }
