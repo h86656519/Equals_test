@@ -84,19 +84,35 @@ public class ExampleUnitTest {
 
         //面積比較  topLeft, topRight, bottomLeft, bottomRight
         final List<Square> s = new ArrayList<>();
-        s.add(new Square(new Point(2, 7), new Point(5, 7), new Point(2, 3), new Point(5, 3))); //12
-        s.add(new Square(new Point(1, 6), new Point(4, 6), new Point(1, 2), new Point(4, 2))); //12
-        s.add(new Square(new Point(1, 5), new Point(3, 4), new Point(1, 2), new Point(3, 2))); //6
-        s.add(new Square(new Point(1, 4), new Point(4, 4), new Point(1, 2), new Point(4, 2))); //6
-        s.add(new Square(new Point(1, 5), new Point(4, 5), new Point(1, 2), new Point(4, 2))); //9
+//        s.add(new Square(new Point(2, 7), new Point(5, 7), new Point(2, 3), new Point(5, 3))); //12
+//        s.add(new Square(new Point(1, 6), new Point(4, 6), new Point(1, 2), new Point(4, 2))); //12
+//        s.add(new Square(new Point(1, 5), new Point(3, 4), new Point(1, 2), new Point(3, 2))); //6
+//        s.add(new Square(new Point(1, 4), new Point(4, 4), new Point(1, 2), new Point(4, 2))); //6
+//        s.add(new Square(new Point(1, 5), new Point(4, 5), new Point(1, 2), new Point(4, 2))); //9
+        Point point1 = new Point();
+        Point point2 = new Point();
+        Point point3 = new Point();
+        Point point4 = new Point();
+        point1.setX(2);
+        point1.setY(7);
+        point2.setX(5);
+        point2.setY(7);
+        point3.setX(2);
+        point3.setY(3);
+        point4.setX(5);
+        point4.setY(3);
+        s.add(new Square(point1, point2, point3, point4)); //12
+
 
         Collections.sort(s, new Comparator<Square>() {
             @Override
             public int compare(Square o1, Square o2) {
                 if (o1.SquareArea() - o2.SquareArea() == 0) {
-                    if (o1.getTopLeft().x - o2.getTopLeft().x == 0) {
-                        return o1.getTopLeft().x - o2.getTopLeft().x;
-                    }
+//                    if (o1.getTopLeft().x - o2.getTopLeft().x == 0) {
+//                        return o1.getTopLeft().x - o2.getTopLeft().x;
+//                    }
+                    Point point = new Point();
+                    point.PointComparator(o1.getTopLeft().x, o2.getTopLeft().x);
                     return o1.getTopLeft().y - o2.getTopLeft().y;
                 }
                 return o1.SquareArea() - o2.SquareArea(); //o1 - o2 = 升冪

@@ -1,21 +1,20 @@
 package com.example.equals_test;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Point {
-    public final int x;
-    public final int y;
+    private int x;
+    private int y;
 
-    public int getX() {
-        return x;
-    }
 
-    public int getY() {
-        return y;
-    }
 
-    public Point(int x, int y) {
+    public void setX(int x) {
         this.x = x;
+    }
+
+    public void setY(int y) {
         this.y = y;
     }
 
@@ -25,10 +24,10 @@ public class Point {
     }
 
 
-
     //        public boolean equals(Point that) {
 //        return this.x == that.x && this.y == that.y;
 //    }
+
 
     @Override
     public boolean equals(Object that) {
@@ -37,5 +36,13 @@ public class Point {
             return this.x == p.x && this.y == p.y;
         }
         return false;
+    }
+
+    public int PointComparator(Point o1, Point o2) {
+        if (o1.x - o2.x == 0) {
+            return o1.y - o2.y;
+        }
+        return o1.x - o2.x; //大到小
+
     }
 }
