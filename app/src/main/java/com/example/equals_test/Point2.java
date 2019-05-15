@@ -1,14 +1,12 @@
 package com.example.equals_test;
 
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.Objects;
 
-public class Point {
+public class Point2 implements Comparable<Point2> {
     public int x;
     public int y;
 
-    public Point(int x, int y) {
+    public Point2(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -41,11 +39,13 @@ public class Point {
         return o1.x - o2.x; //大到小
     }
 
-    public int compareTo(Point o2) {
-        Point o1 = this;
+    @Override
+    public int compareTo(Point2 o2) {
+        Point2 o1 = this;
         if (o1.y - o2.y == 0) {
             return o1.x - o2.x;
         }
+
         return o1.y - o2.y; //大到小
     }
 
@@ -59,5 +59,4 @@ public class Point {
             return o1.x - o2.x; //大到小
         }
     };
-
 }

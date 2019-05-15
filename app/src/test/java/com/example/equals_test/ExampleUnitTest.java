@@ -54,15 +54,22 @@ public class ExampleUnitTest {
 //        System.out.println(pSet.contains(p3));
 //        System.out.println(pList.contains(p3));
 
+//      作法一: 在Point 裡自訂 自己的compareTo()
         final List<Point> p = new ArrayList<>();
         p.add(new Point(1, 1));
         p.add(new Point(3, 6));
         p.add(new Point(3, 2));
         p.add(new Point(2, 1));
-
         System.out.println(p);
+        Collections.sort(p, Point.pointCompator);
 
-        Collections.sort(p,Point.getComparator);
+//      作法二: implements Comparable Override 出 compareTo
+        final List<Point2> p2 = new ArrayList<>();
+        p2.add(new Point2(1, 1));
+        p2.add(new Point2(3, 6));
+        p2.add(new Point2(3, 2));
+        p2.add(new Point2(2, 1));
+        Collections.sort(p2);
 
         for (Point pp : p)
             System.out.println(pp.toString());
@@ -77,14 +84,24 @@ public class ExampleUnitTest {
 //        System.out.println(redSquare);
 
         //面積比較  topLeft, topRight, bottomLeft, bottomRight
+        //作法一: 在Square 裡自訂 自己的compareTo()
         final List<Square> s = new ArrayList<>();
         s.add(new Square(new Point(2, 7), new Point(5, 7), new Point(2, 3), new Point(5, 3))); //12
         s.add(new Square(new Point(1, 6), new Point(4, 6), new Point(1, 2), new Point(4, 2))); //12
         s.add(new Square(new Point(1, 5), new Point(3, 4), new Point(1, 2), new Point(3, 2))); //6
         s.add(new Square(new Point(1, 4), new Point(4, 4), new Point(1, 2), new Point(4, 2))); //6
         s.add(new Square(new Point(1, 5), new Point(4, 5), new Point(1, 2), new Point(4, 2))); //9
+        Collections.sort(s, Square.squareCompatornew);
 
-        Collections.sort(s, Square.SquareComparator);
+        //作法二: implements Comparable Override 出 compareTo
+        final List<Square2> s2 = new ArrayList<>();
+        s2.add(new Square2(new Point(2, 7), new Point(5, 7), new Point(2, 3), new Point(5, 3))); //12
+        s2.add(new Square2(new Point(1, 6), new Point(4, 6), new Point(1, 2), new Point(4, 2))); //12
+        s2.add(new Square2(new Point(1, 5), new Point(3, 4), new Point(1, 2), new Point(3, 2))); //6
+        s2.add(new Square2(new Point(1, 4), new Point(4, 4), new Point(1, 2), new Point(4, 2))); //6
+        s2.add(new Square2(new Point(1, 5), new Point(4, 5), new Point(1, 2), new Point(4, 2))); //9
+
+        Collections.sort(s2);
 
         for (Square ss : s) {
             System.out.println(ss.SquareArea());

@@ -2,9 +2,10 @@ package com.example.equals_test;
 
 import java.util.Comparator;
 
-public class Square {
+public class Square2 implements Comparable<Square2>{
 
-    public int compareTo(Square o) {
+    @Override
+    public int compareTo(Square2 o) {
         if (SquareArea() - o.SquareArea() == 0){
             return this.getTopLeft().compareTo(o.getTopLeft());
         }
@@ -21,7 +22,7 @@ public class Square {
         return topLeft;
     }
 
-    public Square(Point topLeft, Point topRight, Point bottomLeft, Point bottomRight) {
+    public Square2(Point topLeft, Point topRight, Point bottomLeft, Point bottomRight) {
         this.topLeft = topLeft;
         this.topRight = topRight;
         this.bottomLeft = bottomLeft;
@@ -48,7 +49,7 @@ public class Square {
                 "bottomRight : " + this.bottomRight;
     }
 
-    public static  Comparator<Square> squareCompatornew = new Comparator<Square>(){
+    public static Comparator<Square> squareCompatornew = new Comparator<Square>(){
         @Override
         public int compare(Square o1, Square o2) {
             if (o1.SquareArea() - o2.SquareArea() == 0){
